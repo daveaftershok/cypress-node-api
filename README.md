@@ -1,12 +1,12 @@
 # cypress-node-api
 A node API for cypress.. more to come
 
-###to install:
+### To install:
 
-npm install
+```npm install```
 
-###endpoints
+### Endpoints:
 
-/ - shows current test run status
-/run - runs tests
-/results - shows results of last test run add ?v=true for verbose output.
+* / - shows current test run status
+* /run - runs tests
+* /results - shows results of last test run add ?v=true for verbose output.

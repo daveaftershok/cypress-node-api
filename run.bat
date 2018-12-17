@@ -1,1 +1,1 @@
-npx cypress run --reporter mochawesome --spec cypress/integration/EJ/**/*
+npx cypress run --reporter mochawesome --spec cypress/integration/Simple/**/*

@@ -3,7 +3,7 @@ const fs = require('fs');
 const app = express();
 var child_process = require('child_process');
 
-// Allow CORS
+// Allow CORS - Remove if not needed.
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -31,16 +31,16 @@ app.get('/report', (req, res) =>
 
 app.get('/run', (req, res) =>
 {   	
-	child_process.exec('run.bat', function(error, stdout, stderr) {		
+	if (!isRunning) {
+		child_process.exec('run.bat', function(error, stdout, stderr) {				
+			isRunning = false;
+			state = "FINISHED";		
+		});
 		
-		isRunning = false;
-		state = "FINISHED";
-		
-	});
-	
-	isRunning = true;
-	state = "PENDING";	
-	lastStartTime = new Date().toISOString();
+		isRunning = true;
+		state = "PENDING";	
+		lastStartTime = new Date().toISOString();
+	}	
 	
 	res.json({
 		"isRunning": isRunning,

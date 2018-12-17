@@ -1,4 +1,5 @@
-# cypress-node-api
+# Cypress NodeJs API on Windows
+
 A simple node API to run cypress on Windows.
 Linux version to come.
 
